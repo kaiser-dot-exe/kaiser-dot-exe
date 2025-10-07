@@ -21,7 +21,7 @@ Amacım, güvenli sistemler geliştirmek ve güvenlik araştırmalarında derinl
 
 | Kategori | Araçlar / Diller |
 |-----------|------------------|
-| 💻 Diller | Java · Python · SQL |
+| 💻 Diller | Java · Python ,javascript(Temel)|
 | 🧩 Veritabanı | MySQL · SQLite |
 | 🌐 Framework | Flask |
 | 🐳 DevOps & Sistem | Docker · Linux |
