@@ -11,8 +11,7 @@
 Selam! Ben Muhammet — **siber güvenlik** ve **yazılım geliştirme** alanlarında kendini sürekli geliştiren bir geliştiriciyim.  
 Temiz kod yazmayı, sistemleri anlamayı ve zafiyetleri analiz etmeyi seviyorum.  
 Amacım, güvenli sistemler geliştirmek ve güvenlik araştırmalarında derinleşmek.
-
-- 🇹🇷 Türkiye'denim  
+ 
 - 🐧 Aktif olarak **Linux** kullanıyorum  
 - 🔐 İlgi alanlarım: **Web Penetration Testing**, **Malware Analysis**, **Reverse Engineering**  
 - 🚀 Geliştirdiğim teknolojiler: **Java**, **Python**, **Flask**, **SQL**, **Docker**
