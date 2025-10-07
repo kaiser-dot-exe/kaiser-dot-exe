@@ -1,157 +1,122 @@
 <svg width="1200" height="400" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
-    </linearGradient>
+    <filter id="scanlines">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0 0.5"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="noise" mode="multiply"/>
+    </filter>
     
-    <linearGradient id="neonGreen" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00ff41;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="neonRed" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ff0040;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff4040;stop-opacity:1" />
-    </linearGradient>
-    
-    <filter id="neonGlow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
-    <filter id="strongGlow">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <pattern id="hexPattern" width="60" height="52" patternUnits="userSpaceOnUse">
-      <path d="M30 0 L45 13 L45 39 L30 52 L15 39 L15 13 Z" fill="none" stroke="rgba(0,255,65,0.1)" stroke-width="1"/>
-    </pattern>
-    
-    <pattern id="circuitPattern" width="100" height="100" patternUnits="userSpaceOnUse">
-      <path d="M0 50 L20 50 M30 50 L50 50 M60 50 L80 50 M50 0 L50 20 M50 30 L50 50 M50 60 L50 80" 
-            stroke="rgba(0,255,65,0.08)" stroke-width="1.5"/>
-      <circle cx="50" cy="50" r="3" fill="rgba(0,255,65,0.15)"/>
-      <circle cx="20" cy="50" r="2" fill="rgba(0,255,65,0.15)"/>
-      <circle cx="80" cy="50" r="2" fill="rgba(0,255,65,0.15)"/>
-    </pattern>
   </defs>
   
   <!-- Background -->
-  <rect width="1200" height="400" fill="url(#darkGrad)"/>
-  <rect width="1200" height="400" fill="url(#circuitPattern)" opacity="0.6"/>
-  <rect width="1200" height="400" fill="url(#hexPattern)" opacity="0.4"/>
+  <rect width="1200" height="400" fill="#000000"/>
+  <rect width="1200" height="400" fill="#000000" filter="url(#scanlines)" opacity="0.05"/>
   
-  <!-- Animated scan lines -->
-  <rect width="1200" height="2" y="0" fill="url(#neonGreen)" opacity="0.6">
-    <animate attributeName="y" values="-10;410" dur="4s" repeatCount="indefinite"/>
-  </rect>
-  <rect width="1200" height="2" y="0" fill="url(#neonRed)" opacity="0.4">
-    <animate attributeName="y" values="-10;410" dur="6s" repeatCount="indefinite"/>
-  </rect>
-  
-  <!-- Glowing particles -->
-  <circle cx="200" cy="100" r="3" fill="#00ff41">
-    <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="100;120;100" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1000" cy="300" r="3" fill="#00ff41">
-    <animate attributeName="opacity" values="0.2;1;0.2" dur="2.5s" repeatCount="indefinite"/>
-    <animate attributeName="cy" values="300;280;300" dur="3.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="900" cy="80" r="3" fill="#ff0040">
-    <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- Terminal Window -->
-  <rect x="80" y="30" width="400" height="30" rx="5" fill="rgba(0,0,0,0.5)" stroke="rgba(0,255,65,0.3)" stroke-width="1"/>
-  <circle cx="100" cy="45" r="5" fill="#ff5f56"/>
-  <circle cx="120" cy="45" r="5" fill="#ffbd2e"/>
-  <circle cx="140" cy="45" r="5" fill="#27c93f"/>
-  <text x="160" y="50" font-family="'Courier New', monospace" font-size="14" fill="#00ff41">
-    root@kaiser:~$ ./hack_the_planet
+  <!-- Matrix rain effect -->
+  <text x="50" y="50" font-family="'Courier New', monospace" font-size="12" fill="#00ff00" opacity="0.3">
+    01001011 01000001 01001001 01010011 01000101 01010010
+    <animate attributeName="y" values="50;450" dur="15s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0;0.3" dur="15s" repeatCount="indefinite"/>
+  </text>
+  <text x="1100" y="100" font-family="'Courier New', monospace" font-size="12" fill="#00ff00" opacity="0.3">
+    11010110 10101010
+    <animate attributeName="y" values="100;450" dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0;0.3" dur="12s" repeatCount="indefinite"/>
   </text>
   
-  <!-- Lock icon with animation -->
-  <g transform="translate(1050, 50)">
-    <rect x="-20" y="10" width="40" height="35" rx="5" fill="none" stroke="url(#neonGreen)" stroke-width="2" filter="url(#neonGlow)">
-      <animate attributeName="stroke-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
-    </rect>
-    <path d="M -15 10 L -15 0 Q -15 -15 0 -15 Q 15 -15 15 0 L 15 10" fill="none" stroke="url(#neonGreen)" stroke-width="2" filter="url(#neonGlow)">
-      <animate attributeName="stroke-opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
-    </path>
-    <circle cx="0" cy="22" r="5" fill="#00ff41" filter="url(#neonGlow)">
-      <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+  <!-- Terminal window -->
+  <rect x="100" y="80" width="1000" height="240" rx="8" fill="#0c0c0c" stroke="#00ff00" stroke-width="2"/>
+  
+  <!-- Window controls -->
+  <circle cx="125" cy="105" r="6" fill="#ff5f56"/>
+  <circle cx="150" cy="105" r="6" fill="#ffbd2e"/>
+  <circle cx="175" cy="105" r="6" fill="#27c93f"/>
+  
+  <!-- Terminal title bar -->
+  <text x="600" y="110" font-family="'Courier New', monospace" font-size="14" fill="#00ff00" text-anchor="middle">
+    root@kaiser:~/.profile
+  </text>
+  
+  <!-- Terminal content -->
+  <g font-family="'Courier New', monospace" fill="#00ff00" filter="url(#glow)">
+    <text x="120" y="150" font-size="14">
+      <tspan fill="#00ff00">kaiser@github</tspan>
+      <tspan fill="#ffffff">:</tspan>
+      <tspan fill="#5588ff">~</tspan>
+      <tspan fill="#ffffff">$ whoami</tspan>
+    </text>
+    
+    <text x="120" y="175" font-size="14" opacity="0.8">
+      &gt; Initializing profile...
+    </text>
+    
+    <text x="120" y="200" font-size="14" opacity="0.8">
+      &gt; Loading credentials...
+    </text>
+    
+    <text x="120" y="230" font-size="48" font-weight="bold" letter-spacing="8">
+      &gt; KAISER_
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </text>
+    
+    <text x="120" y="265" font-size="16" opacity="0.9">
+      [ HACKER • DEVELOPER • SECURITY_EXPERT ]
+    </text>
+    
+    <text x="120" y="295" font-size="14" opacity="0.7">
+      <tspan fill="#00ff00">kaiser@github</tspan>
+      <tspan fill="#ffffff">:</tspan>
+      <tspan fill="#5588ff">~</tspan>
+      <tspan fill="#ffffff">$ ./run_profile.sh</tspan>
+      <tspan fill="#00ff00"> ✓</tspan>
+    </text>
+  </g>
+  
+  <!-- Status indicators -->
+  <g transform="translate(100, 340)">
+    <text x="0" y="0" font-family="'Courier New', monospace" font-size="12" fill="#00ff00">
+      [STATUS: ONLINE]
+    </text>
+    <circle cx="100" cy="-4" r="4" fill="#00ff00">
+      <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <text x="150" y="0" font-family="'Courier New', monospace" font-size="12" fill="#ffbd2e">
+      [UPTIME: 99.9%]
+    </text>
+    
+    <text x="300" y="0" font-family="'Courier New', monospace" font-size="12" fill="#5588ff">
+      [COMMITS: 1337]
+    </text>
+    
+    <text x="450" y="0" font-family="'Courier New', monospace" font-size="12" fill="#ff5f56">
+      [COFFEE: CRITICAL]
+    </text>
+    <circle cx="570" cy="-4" r="4" fill="#ff5f56">
+      <animate attributeName="opacity" values="1;0.3;1" dur="0.8s" repeatCount="indefinite"/>
     </circle>
   </g>
   
-  <!-- Main Title with cyber effect -->
-  <g filter="url(#strongGlow)">
-    <text x="600" y="140" font-family="'Courier New', monospace" font-size="32" fill="#00ff41" text-anchor="middle" font-weight="bold">
-      &gt; INITIATING_SYSTEM...
-    </text>
-    
-    <text x="600" y="210" font-family="'Orbitron', 'Courier New', monospace" font-size="76" fill="#00ff41" text-anchor="middle" font-weight="bold" letter-spacing="2">
-      KAISER
-    </text>
-    
-    <text x="600" y="250" font-family="'Courier New', monospace" font-size="18" fill="#ff0040" text-anchor="middle">
-      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    </text>
+  <!-- Cursor blink effect -->
+  <rect x="480" y="210" width="12" height="30" fill="#00ff00" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Grid overlay -->
+  <g opacity="0.03">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="#00ff00" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="#00ff00" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#00ff00" stroke-width="1"/>
   </g>
-  
-  <!-- Subtitle -->
-  <text x="600" y="290" font-family="'Courier New', monospace" font-size="24" fill="#00ff88" text-anchor="middle" filter="url(#neonGlow)">
-    Cybersecurity Specialist | Ethical Hacker | Security Researcher
-  </text>
-  
-  <!-- Tech Stack Icons -->
-  <g transform="translate(250, 320)">
-    <!-- Java -->
-    <rect x="0" y="0" width="80" height="45" rx="5" fill="rgba(0,0,0,0.5)" stroke="#00ff41" stroke-width="1.5"/>
-    <text x="40" y="30" font-family="'Courier New', monospace" font-size="20" fill="#00ff41" text-anchor="middle" font-weight="bold">JAVA</text>
-    
-    <!-- Python -->
-    <rect x="100" y="0" width="100" height="45" rx="5" fill="rgba(0,0,0,0.5)" stroke="#00ff41" stroke-width="1.5"/>
-    <text x="150" y="30" font-family="'Courier New', monospace" font-size="20" fill="#00ff41" text-anchor="middle" font-weight="bold">PYTHON</text>
-    
-    <!-- Linux -->
-    <rect x="220" y="0" width="90" height="45" rx="5" fill="rgba(0,0,0,0.5)" stroke="#00ff41" stroke-width="1.5"/>
-    <text x="265" y="30" font-family="'Courier New', monospace" font-size="20" fill="#00ff41" text-anchor="middle" font-weight="bold">LINUX</text>
-    
-    <!-- Security -->
-    <rect x="330" y="0" width="140" height="45" rx="5" fill="rgba(0,0,0,0.5)" stroke="#ff0040" stroke-width="1.5">
-      <animate attributeName="stroke-opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
-    </rect>
-    <text x="400" y="30" font-family="'Courier New', monospace" font-size="20" fill="#ff0040" text-anchor="middle" font-weight="bold">🛡️ SECURITY</text>
-  </g>
-  
-  <!-- Binary rain effect -->
-  <text x="50" y="150" font-family="'Courier New', monospace" font-size="14" fill="rgba(0,255,65,0.3)" opacity="0.6">
-    01001011
-    <animate attributeName="y" values="50;400" dur="8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0;0.6" dur="8s" repeatCount="indefinite"/>
-  </text>
-  <text x="1100" y="250" font-family="'Courier New', monospace" font-size="14" fill="rgba(0,255,65,0.3)" opacity="0.6">
-    01100101
-    <animate attributeName="y" values="50;400" dur="10s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.6;0;0.6" dur="10s" repeatCount="indefinite"/>
-  </text>
-  
-  <!-- Bottom command prompt -->
-  <text x="100" y="385" font-family="'Courier New', monospace" font-size="14" fill="#00ff88" opacity="0.7">
-    root@kaiser:~$ access_granted | status: [ONLINE]
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
-  </text>
 </svg>
