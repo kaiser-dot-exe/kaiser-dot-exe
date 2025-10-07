@@ -1,8 +1,10 @@
+<div align="center">
+  <img src="header.svg" alt="Header" width="100%"/>
+</div> 
+
 # 👋 Merhaba, ben Muhammet (Kaiser)
 
 > 💻 Siber güvenlik meraklısı • Java & Python geliştiricisi • Linux tutkunu
-
-![Header](https://raw.githubusercontent.com/kaiser-dot-exe/kaiser-dot-exe/main/Kaiser-dot-exe.png)
 
 ## 🧠 Hakkımda
 
