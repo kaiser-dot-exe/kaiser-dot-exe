@@ -33,7 +33,7 @@ Amacım, güvenli sistemler geliştirmek ve güvenlik araştırmalarında derinl
 ## 🔭 Şu anda
 
 - 🚧 Java ve Python üzerinde kendimi geliştiriyorum  
-- 🕵️‍♂️ Web uygulama güvenliği ve malware analizi üzerine çalışıyorum  
+- 🕵️‍♂️ Web uygulama güvenliği üzerine çalışıyorum  
 - 📚 Açık kaynak projelere katkı yapmayı hedefliyorum  
 
 ---
