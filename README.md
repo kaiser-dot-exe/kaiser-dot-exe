@@ -2,7 +2,7 @@
 
 > 💻 Siber güvenlik meraklısı • Java & Python geliştiricisi • Linux tutkunu
 
-![Header](https://raw.githubusercontent.com/kaiser-dot-exe/kaiser-dot-exe/main/assets/header.png)
+![Header](https://raw.githubusercontent.com/kaiser-dot-exe/kaiser-dot-exe/main/kaiser-dot-exe.png)
 
 ## 🧠 Hakkımda
 
