@@ -13,7 +13,7 @@ Temiz kod yazmayı, sistemleri anlamayı ve zafiyetleri analiz etmeyi seviyorum.
 Amacım, güvenli sistemler geliştirmek ve güvenlik araştırmalarında derinleşmek.
  
 - 🐧 Aktif olarak **Linux** kullanıyorum  
-- 🔐 İlgi alanlarım: **Web Penetration Testing**, **Malware Analysis**, **Reverse Engineering**  
+- 🔐 İlgi alanlarım: **Web Penetration Testing**, **Backend Development** 
 - 🚀 Geliştirdiğim teknolojiler: **Java**, **Python**, **Flask**, **SQL**, **Docker**
 
 ---
